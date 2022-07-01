@@ -52,7 +52,17 @@ export class YouTubeTranscriptionPlayer extends LitElement {
   }
 
   _formatTime(t: number): string {
-    return `${Math.floor(t / 60)}:${("00" + Math.floor(t % 60)).slice(-2)}`;
+    const div = (x: number, y: number) => [Math.floor(x / y), x % y];
+    const pad = (x: number) => (x < 10 ? "0" : "") + x;
+    const [_secs, subsecs] = div(t, 1);
+    const [_mins, secs] = div(_secs, 60);
+    const [hours, mins] = div(_mins, 60);
+    return `${hours}:${pad(mins)}:${pad(secs)}.${String(subsecs).substring(2, 4).padEnd(2, "0")}`;
+  }
+
+  _decodeTime(s: string): number {
+    const [hours, mins, secs] = s.split(":").map((x) => parseFloat(x));
+    return hours * 60 * 60 + mins * 60 + secs;
   }
 
   async _fetchVTT(): Promise<string> {
@@ -156,7 +166,7 @@ export class YouTubeTranscriptionPlayer extends LitElement {
   _onClick(ev: MouseEvent) {
     const cueTime = (ev.target as HTMLElement)?.dataset?.cueTime;
     if (cueTime) {
-      const t = parseFloat(cueTime);
+      const t = this._decodeTime(cueTime);
       if (t) {
         this.player?.seekTo(t);
       }
@@ -181,7 +191,9 @@ export class YouTubeTranscriptionPlayer extends LitElement {
         allowfullscreen
       ></iframe>
       <div class="transcript" @click=${this._onClick}>
-        ${this.vttCues?.map((cue) => html`<span data-cue-time="${cue.time}">${cue.text}</span>`)}
+        ${this.vttCues?.map(
+          (cue) => html`<span data-cue-time="${this._formatTime(cue.time)}" part="cue">${cue.text}</span>`
+        )}
       </div>
       ${youtubeIframeScript}
     `;

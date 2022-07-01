@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webcomponent Youtube Transcription Player Lit Element Simple Starter Kit</title>
+    <title>Webcomponent youtube-transcription-player</title>
 </head>
 <body>
+    <style>
+      #el1::part(cue) {
+        background: #eee;
+        padding: 3px;
+        border-radius: 3px;
+        margin: 0 4px 4px;
+      }
+      #el1::part(cue):hover {
+      background: #ddd;;
+      }
+    </style>
     <youtube-transcription-player
+      id="el1"
       videoId="kwnLtaVqDi4"
       vttSource="https://gist.githubusercontent.com/motemen/5240bb435d3bbc21379aa3de42ddd987/raw/a55d3bdcde104e85e7da4b0e492f4f08cd140c42/kwnLtaVqDi4.vtt"></youtube-transcription-player>
 
+    <style>
+      #el2::part(cue) {
+        display: block;
+      }
+      #el2::part(cue):before {
+        content: "[" attr(data-cue-time) "] ";
+      }
+    </style>
     <youtube-transcription-player
+      id="el2"
       videoId="kwnLtaVqDi4"
       vttSource="#vtt"></youtube-transcription-player>
     <textarea id="vtt">
