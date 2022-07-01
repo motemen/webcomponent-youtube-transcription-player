@@ -28,6 +28,9 @@ export class YouTubeTranscriptionPlayer extends LitElement {
       }
       [data-cue-time] {
         cursor: pointer;
+        background-color: inherit;
+        font: inherit;
+        border: none;
       }
     `,
   ];
@@ -192,7 +195,8 @@ export class YouTubeTranscriptionPlayer extends LitElement {
       ></iframe>
       <div class="transcript" @click=${this._onClick}>
         ${this.vttCues?.map(
-          (cue) => html`<span data-cue-time="${this._formatTime(cue.time)}" part="cue">${cue.text}</span>`
+          (cue) =>
+            html`<button data-cue-time="${this._formatTime(cue.time)}" part="cue" tabindex="0">${cue.text}</button>`
         )}
       </div>
       ${youtubeIframeScript}
