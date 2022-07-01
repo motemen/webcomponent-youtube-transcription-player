@@ -7,35 +7,36 @@
     <title>Webcomponent youtube-transcription-player</title>
 </head>
 <body>
-    <style>
-      #el1::part(cue) {
-        background: #eee;
-        padding: 3px;
-        border-radius: 3px;
-        margin: 0 4px 4px 0;
-      }
-      #el1::part(cue):hover {
-      background: #ddd;;
-      }
-    </style>
-    <youtube-transcription-player
-      id="el1"
-      videoId="kwnLtaVqDi4"
-      vttSource="https://gist.githubusercontent.com/motemen/5240bb435d3bbc21379aa3de42ddd987/raw/a55d3bdcde104e85e7da4b0e492f4f08cd140c42/kwnLtaVqDi4.vtt"></youtube-transcription-player>
+  <h1>Webcomponent youtube-transcription-player</h1>
+  <style>
+    #el1::part(cue) {
+      background: #eee;
+      padding: 3px;
+      border-radius: 3px;
+      margin: 0 4px 4px 0;
+    }
+    #el1::part(cue):hover {
+    background: #ddd;;
+    }
+  </style>
+  <youtube-transcription-player
+    id="el1"
+    videoId="kwnLtaVqDi4"
+    vttSource="https://gist.githubusercontent.com/motemen/5240bb435d3bbc21379aa3de42ddd987/raw/a55d3bdcde104e85e7da4b0e492f4f08cd140c42/kwnLtaVqDi4.vtt"></youtube-transcription-player>
 
-    <style>
-      #el2::part(cue) {
-        display: block;
-      }
-      #el2::part(cue):before {
-        content: "[" attr(data-cue-time) "] ";
-      }
-    </style>
-    <youtube-transcription-player
-      id="el2"
-      videoId="kwnLtaVqDi4"
-      vttSource="#vtt"></youtube-transcription-player>
-    <textarea id="vtt">
+  <style>
+    #el2::part(cue) {
+      display: block;
+    }
+    #el2::part(cue):before {
+      content: "[" attr(data-cue-time) "] ";
+    }
+  </style>
+  <youtube-transcription-player
+    id="el2"
+    videoId="kwnLtaVqDi4"
+    vttSource="#vtt"></youtube-transcription-player>
+  <textarea id="vtt">
 WEBVTT
 Kind: captions
 Language: ja
@@ -196,7 +197,7 @@ Web Speech API の中でも
 00:03:06.660 --> 00:03:11.750
 さん今日から無料で使い始められますので
 どうぞご利用ください
-    </textarea>
-    <script type="module" src="/src/index.ts"></script>
+  </textarea>
+  <script type="module" src="/src/index.ts"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ import commonjs from "@rollup/plugin-commonjs";
 export default {
   plugins: [
     html({
-      input: "index.html",
+      input: "demo.html",
     }),
     resolve(),
     commonjs(),
