@@ -40,6 +40,16 @@ const p$1 = function polyfill() {
   }
 };
 p$1();
+function __decorate(decorators, target, key, desc) {
+  var c2 = arguments.length, r2 = c2 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d2;
+  if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+    r2 = Reflect.decorate(decorators, target, key, desc);
+  else
+    for (var i2 = decorators.length - 1; i2 >= 0; i2--)
+      if (d2 = decorators[i2])
+        r2 = (c2 < 3 ? d2(r2) : c2 > 3 ? d2(target, key, r2) : d2(target, key)) || r2;
+  return c2 > 3 && r2 && Object.defineProperty(target, key, r2), r2;
+}
 /**
  * @license
  * Copyright 2019 Google LLC
@@ -597,16 +607,6 @@ s.finalized = true, s._$litElement$ = true, (l = globalThis.litElementHydrateSup
 const n$1 = globalThis.litElementPolyfillSupport;
 n$1 == null || n$1({ LitElement: s });
 ((o = globalThis.litElementVersions) !== null && o !== void 0 ? o : globalThis.litElementVersions = []).push("3.2.1");
-function __decorate(decorators, target, key, desc) {
-  var c2 = arguments.length, r2 = c2 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d2;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-    r2 = Reflect.decorate(decorators, target, key, desc);
-  else
-    for (var i2 = decorators.length - 1; i2 >= 0; i2--)
-      if (d2 = decorators[i2])
-        r2 = (c2 < 3 ? d2(r2) : c2 > 3 ? d2(target, key, r2) : d2(target, key)) || r2;
-  return c2 > 3 && r2 && Object.defineProperty(target, key, r2), r2;
-}
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -1537,15 +1537,3 @@ __decorate([
   t()
 ], YoutubeTranscriptionPlayer.prototype, "vttCues", void 0);
 window.customElements.define("youtube-transcription-player", YoutubeTranscriptionPlayer);
-x($`
-      <youtube-transcription-player
-        id="el1"
-        videoId="kwnLtaVqDi4"
-        vttSource="https://gist.githubusercontent.com/motemen/5240bb435d3bbc21379aa3de42ddd987/raw/a55d3bdcde104e85e7da4b0e492f4f08cd140c42/kwnLtaVqDi4.vtt">
-      </youtube-transcription-player>
-      <youtube-transcription-player
-        id="el2"
-        videoId="kwnLtaVqDi4"
-        vttSource="#vtt">
-      </youtube-transcription-player>
-      `, document.querySelector("#demo"));
