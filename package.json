@@ -21,7 +21,8 @@
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
     "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook",
-    "deploy": "vite build && gh-pages -d dist/demo"
+    "demo:build": "vite build",
+    "demo:deploy": "gh-pages -d dist/demo"
   },
   "dependencies": {
     "lit": "^2.0.2",

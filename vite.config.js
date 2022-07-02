@@ -3,6 +3,7 @@ const { defineConfig } = require('vite');
 
 module.exports = defineConfig({
   root: './demo',
+  base: '/webcomponent-youtube-transcription-player/',
   build: {
     outDir: path.join(__dirname, 'dist/demo'),
     lib: {
