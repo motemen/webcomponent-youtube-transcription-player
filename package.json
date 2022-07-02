@@ -1,9 +1,9 @@
 {
-  "name": "youtube-transcription-player",
+  "name": "@motemen/youtube-transcription-player",
   "description": "Webcomponent youtube-transcription-player following open-wc recommendations",
   "license": "MIT",
-  "author": "youtube-transcription-player",
-  "version": "0.0.0",
+  "author": "motemen",
+  "version": "0.1.0",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
   "exports": {
