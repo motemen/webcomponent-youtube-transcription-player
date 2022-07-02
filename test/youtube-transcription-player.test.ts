@@ -4,7 +4,7 @@ import { YoutubeTranscriptionPlayer } from '../src/YoutubeTranscriptionPlayer.js
 import '../src/youtube-transcription-player.js';
 
 describe('YoutubeTranscriptionPlayer', () => {
-  it('has a default title "Hey there" and counter 5', async () => {
+  it('shows youtube iframe', async () => {
     const el = await fixture<YoutubeTranscriptionPlayer>(
       html`
         <youtube-transcription-player
