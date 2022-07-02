@@ -21,6 +21,9 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ ({
   plugins: [
     /** Use Hot Module Replacement by uncommenting. Requires @open-wc/dev-server-hmr plugin */
     // hmr && hmrPlugin({ exclude: ['**/*/node_modules/**/*'], presets: [presets.litElement] }),
+    // commonjs({
+    //   include: ['./node_modules/webvtt-parser/**/*'],
+    // }),
   ],
 
   // See documentation for all available options

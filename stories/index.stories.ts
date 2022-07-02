@@ -5,9 +5,8 @@ export default {
   title: 'YoutubeTranscriptionPlayer',
   component: 'youtube-transcription-player',
   argTypes: {
-    title: { control: 'text' },
-    counter: { control: 'number' },
-    textColor: { control: 'color' },
+    videoId: { control: 'text' },
+    vttSource: { control: 'text' },
   },
 };
 
@@ -18,23 +17,17 @@ interface Story<T> {
 }
 
 interface ArgTypes {
-  title?: string;
-  counter?: number;
-  textColor?: string;
   slot?: TemplateResult;
+  videoId?: string;
+  vttSource?: string;
 }
 
 const Template: Story<ArgTypes> = ({
-  title = 'Hello world',
-  counter = 5,
-  textColor,
   slot,
+  videoId = 'kwnLtaVqDi4',
+  vttSource = 'https://gist.githubusercontent.com/motemen/5240bb435d3bbc21379aa3de42ddd987/raw/a55d3bdcde104e85e7da4b0e492f4f08cd140c42/kwnLtaVqDi4.vtt',
 }: ArgTypes) => html`
-  <youtube-transcription-player
-    style="--youtube-transcription-player-text-color: ${textColor || 'black'}"
-    .title=${title}
-    .counter=${counter}
-  >
+  <youtube-transcription-player .videoId=${videoId} .vttSource=${vttSource}>
     ${slot}
   </youtube-transcription-player>
 `;
@@ -42,14 +35,10 @@ const Template: Story<ArgTypes> = ({
 export const Regular = Template.bind({});
 
 export const CustomTitle = Template.bind({});
-CustomTitle.args = {
-  title: 'My title',
-};
+CustomTitle.args = {};
 
 export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-  counter: 123456,
-};
+CustomCounter.args = {};
 
 export const SlottedContent = Template.bind({});
 SlottedContent.args = {

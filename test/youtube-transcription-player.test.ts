@@ -6,37 +6,16 @@ import '../src/youtube-transcription-player.js';
 describe('YoutubeTranscriptionPlayer', () => {
   it('has a default title "Hey there" and counter 5', async () => {
     const el = await fixture<YoutubeTranscriptionPlayer>(
-      html`<youtube-transcription-player></youtube-transcription-player>`
+      html`
+        <youtube-transcription-player
+          id="el1"
+          videoId="kwnLtaVqDi4"
+          vttSource="https://gist.githubusercontent.com/motemen/5240bb435d3bbc21379aa3de42ddd987/raw/a55d3bdcde104e85e7da4b0e492f4f08cd140c42/kwnLtaVqDi4.vtt"
+        >
+        </youtube-transcription-player>
+      `
     );
 
-    expect(el.title).to.equal('Hey there');
-    expect(el.counter).to.equal(5);
-  });
-
-  it('increases the counter on button click', async () => {
-    const el = await fixture<YoutubeTranscriptionPlayer>(
-      html`<youtube-transcription-player></youtube-transcription-player>`
-    );
-    el.shadowRoot!.querySelector('button')!.click();
-
-    expect(el.counter).to.equal(6);
-  });
-
-  it('can override the title via attribute', async () => {
-    const el = await fixture<YoutubeTranscriptionPlayer>(
-      html`<youtube-transcription-player
-        title="attribute title"
-      ></youtube-transcription-player>`
-    );
-
-    expect(el.title).to.equal('attribute title');
-  });
-
-  it('passes the a11y audit', async () => {
-    const el = await fixture<YoutubeTranscriptionPlayer>(
-      html`<youtube-transcription-player></youtube-transcription-player>`
-    );
-
-    await expect(el).shadowDom.to.be.accessible();
+    expect(el.shadowRoot?.querySelector('iframe')).not.to.be.undefined;
   });
 });
